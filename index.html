@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it-it">
+    <head>
+        <title>Codice Fiscale</title>
+    </head>
+
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #20c997;
+        }
+    </style>
+
+    <body>
+        <h1>Codice Fiscale</h1><br>
+        <form>
+            <label for="cognome">Cognome:</label><br>
+            <input type="text" id="cognome" placeholder="Es: Rossi"></input><br><br>
+
+            <label for="nome">Nome:</label><br>
+            <input type="text" id="nome" placeholder="Es: Mario"></input><br><br>
+
+            <label for="Sesso">Sesso:</label><br>
+            <select id="Sesso">
+                <option>M</option>
+                <option>F</option>
+            </select><br><br>
+
+            <label for="lNascita">Luogo di nascita:</label><br>
+            <input type="text" id="lNascita" placeholder="Es: Milano"></input><br><br>
+
+            <label for="provincia">Provincia:</label><br>
+            <input type="text" id="provincia" placeholder="Es: MI"></form><br><br>
+
+            <label for="data">Data di nascita:</label><br>
+            <input type="date" id="data"></input><br><br>
+
+            <button type="submit">CALCOLA</button>
+
+        </form>
+        <script src="codiceFiscaleHTML.js"></script>
+    </body>
+</html>
