@@ -53,8 +53,6 @@ function CodiceFiscale() {
         }
     }
 
-    let data = document.getElementById("data").value;
-
     //Calcolo delle terze tre cifre (mese, anno)
     let mese = document.getElementById("data").getMonth();
     let anno = document.getElementById("data").getYear();
