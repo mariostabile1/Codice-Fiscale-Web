@@ -1,10 +1,11 @@
-function CodiceFiscale(cognome, nome, sesso, lNascita, provincia, giorno, mese, anno) {
+function CodiceFiscale() {
     let CodFiscale = "";
     let consonanti = /[bcdfghjklmnpqrstvwxyz]/gi
     let vocali = /[aeiou]/gi
     const data = require("./CodiciComuni.json");
 
     //Calcolo delle prime tre cifre (cognome)
+    let cognome = document.getElementById("cognome").value;
     let p1 = cognome.match(consonanti);
     switch (true) {
         case p1.length === 2: {
@@ -26,6 +27,7 @@ function CodiceFiscale(cognome, nome, sesso, lNascita, provincia, giorno, mese, 
     }
 
     //Calcolo delle seconde tre cifre (nome)
+    let nome = document.getElementById("nome").value;
     let p2 = nome.match(consonanti);
     switch (true) {
         case p2.length === 2: {
@@ -51,7 +53,11 @@ function CodiceFiscale(cognome, nome, sesso, lNascita, provincia, giorno, mese, 
         }
     }
 
+    let data = document.getElementById("data").value;
+
     //Calcolo delle terze tre cifre (mese, anno)
+    let mese = document.getElementById("data").getMonth();
+    let anno = document.getElementById("data").getYear();
     let p3 = (anno[2] + anno[3]).toUpperCase();
     mese = mese.toUpperCase();
     CodFiscale = p1 + p2 + p3;
@@ -73,7 +79,9 @@ function CodiceFiscale(cognome, nome, sesso, lNascita, provincia, giorno, mese, 
     CodFiscale += objMese[mese];
 
     //Calcolo delle quarte due cifre (giorno, sesso)
+    let giorno = document.getElementById("data").getDay();
     let p4 = giorno;
+    let sesso = document.getElementById("sesso").value;
     if (sesso === "f") {
         p4 = parseInt(p4);
         p4 += 40;
@@ -87,6 +95,7 @@ function CodiceFiscale(cognome, nome, sesso, lNascita, provincia, giorno, mese, 
     }
 
     //Calcolo delle quinte quattro cifre (comune)
+    let lNascita = document.getElementById("lNascita").value;
     let p5;
     for(let i = 0; i < data.length; i++) {
         if(data[i].COMUNE === lNascita.toUpperCase()) {
