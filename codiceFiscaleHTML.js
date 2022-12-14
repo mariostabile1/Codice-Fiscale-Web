@@ -2,7 +2,8 @@ function CodiceFiscale() {
     let CodFiscale = "";
     let consonanti = /[bcdfghjklmnpqrstvwxyz]/gi
     let vocali = /[aeiou]/gi
-    const data = require("./CodiciComuni.json");
+    let myData = '[{"ID": "A001", "COMUNE": "ABANO TERME"}]';
+    let parsedData = JSON.parse(myData);
 
     //Calcolo delle prime tre cifre (cognome)
     let cognome = document.getElementById("cognome").value;
@@ -95,9 +96,9 @@ function CodiceFiscale() {
     //Calcolo delle quinte quattro cifre (comune)
     let lNascita = document.getElementById("lNascita").value;
     let p5;
-    for(let i = 0; i < data.length; i++) {
-        if(data[i].COMUNE === lNascita.toUpperCase()) {
-            p5 = data[i].ID;
+    for(let i = 0; i < parsedData.length; i++) {
+        if(parsedData[i].COMUNE === lNascita.toUpperCase()) {
+            p5 = parsedData[i].ID;
         }
     }
     CodFiscale += p5;
